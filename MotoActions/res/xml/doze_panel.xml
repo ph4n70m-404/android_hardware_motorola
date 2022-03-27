@@ -19,13 +19,13 @@
     <SwitchPreference
         android:key="always_on_display"
         android:disableDependentsState="true"
-        android:title="@string/ambient_display_always_on_title"
-        android:summary="@string/ambient_display_always_on_summary"
+        android:title="@string/ambient_display_title"
+        android:summary="@string/ambient_display_summary"
         android:persistent="false" />
 
     <PreferenceCategory
         android:key="ambient_display_key"
-        android:title="@string/ambient_display_title">
+        android:title="@string/ambient_display_gestures_title">
 
         <SwitchPreference
             android:key="gesture_pick_up"

@@ -20,7 +20,7 @@ package org.lineageos.settings.device;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.MenuItem;
-
+import android.os.SystemProperties;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
 
@@ -33,7 +33,7 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.actions_panel);
+        addPreferencesFromResource(R.xml.main_panel);
         final ActionBar actionBar = getActivity().getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
