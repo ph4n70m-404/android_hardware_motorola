@@ -32,6 +32,7 @@
         android:disableDependentsState="true"
         android:title="@string/ambient_display_title"
         android:summary="@string/ambient_display_summary"
+        android:icon="@drawable/ic_settings_doze"
         android:persistent="false" />
 
     <PreferenceCategory
