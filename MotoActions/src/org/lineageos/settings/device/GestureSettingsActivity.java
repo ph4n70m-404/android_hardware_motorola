@@ -18,16 +18,17 @@ package org.lineageos.settings.device;
 
 import android.os.Bundle;
 
-import android.preference.PreferenceActivity;
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
-public class GestureSettingsActivity extends PreferenceActivity {
+public class GestureSettingsActivity extends CollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null){
             getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, new GestureSettingsFragment()).commit();
+                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                new GestureSettingsFragment()).commit();
         }
     }
 }
