@@ -32,36 +32,34 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.main_panel);
 
-        if (!getResources().getBoolean(R.bool.config_rom_support_stylus)) {
-            try {
-                if (!getResources().getBoolean(R.bool.config_device_support_stylus)) {
-                    Preference pref = getPreferenceScreen().findPreference("stylus");
-                    if (pref != null) {
-                        getPreferenceScreen().removePreference(pref);
-                    }
-                    Preference pref2 = getPreferenceScreen().findPreference("note");
-                    if (pref2 != null) {
-                        getPreferenceScreen().removePreference(pref2);
-                    }
+        try {
+            if (!getResources().getBoolean(R.bool.config_rom_support_stylus)) {
+                Preference pref = getPreferenceScreen().findPreference("stylus");
+                if (pref != null) {
+                    getPreferenceScreen().removePreference(pref);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
-                if (!deviceProp.contains("sofiap")) {
-                    Preference pref = getPreferenceScreen().findPreference("stylus");
-                    if (pref != null) {
-                        getPreferenceScreen().removePreference(pref);
-                    }
-                    Preference pref2 = getPreferenceScreen().findPreference("note");
-                    if (pref2 != null) {
-                        getPreferenceScreen().removePreference(pref2);
-                    }
+                Preference pref2 = getPreferenceScreen().findPreference("note");
+                if (pref2 != null) {
+                    getPreferenceScreen().removePreference(pref2);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
+            if (!deviceProp.contains("sofiap")) {
+                Preference pref = getPreferenceScreen().findPreference("stylus");
+                if (pref != null) {
+                    getPreferenceScreen().removePreference(pref);
+                }
+                Preference pref2 = getPreferenceScreen().findPreference("note");
+                if (pref2 != null) {
+                    getPreferenceScreen().removePreference(pref2);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

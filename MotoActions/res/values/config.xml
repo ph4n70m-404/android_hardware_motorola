@@ -5,8 +5,5 @@
     <!-- whether rom has support for stylus actions -->
     <bool name="config_rom_support_stylus">false</bool>
 
-    <!-- whether device has support for stylus actions (leave as false for sofiap) -->
-    <bool name="config_device_support_stylus">false</bool>
-    
 </resources>
 
