@@ -87,4 +87,10 @@
     <!-- Pocket gesture -->
     <string name="pocket_gesture_title">Pocket</string>
     <string name="pocket_gesture_summary">Pulse notifications on removal from pocket</string>
+
+    <!-- Stylus/Note -->
+    <string name="note_title">Moto Note</string>
+    <string name="moto_note_summary">Open the Moto Note application</string>
+    <string name="stylus_title">Stylus settings</string>
+    <string name="stylus_settings_summary">Edit what happens when you pull out the stylus</string>
 </resources>

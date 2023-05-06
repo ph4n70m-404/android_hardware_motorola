@@ -20,6 +20,7 @@ package org.lineageos.settings.device;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.os.SystemProperties;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
 
@@ -30,6 +31,38 @@ public class ActionsPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.main_panel);
+
+        if (!getResources().getBoolean(R.bool.config_rom_support_stylus)) {
+            try {
+                if (!getResources().getBoolean(R.bool.config_device_support_stylus)) {
+                    Preference pref = getPreferenceScreen().findPreference("stylus");
+                    if (pref != null) {
+                        getPreferenceScreen().removePreference(pref);
+                    }
+                    Preference pref2 = getPreferenceScreen().findPreference("note");
+                    if (pref2 != null) {
+                        getPreferenceScreen().removePreference(pref2);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                String deviceProp = SystemProperties.get("ro.product.product.device", "sofia");
+                if (!deviceProp.contains("sofiap")) {
+                    Preference pref = getPreferenceScreen().findPreference("stylus");
+                    if (pref != null) {
+                        getPreferenceScreen().removePreference(pref);
+                    }
+                    Preference pref2 = getPreferenceScreen().findPreference("note");
+                    if (pref2 != null) {
+                        getPreferenceScreen().removePreference(pref2);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
